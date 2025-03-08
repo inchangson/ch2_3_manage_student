@@ -1,6 +1,5 @@
 package org.fastcampus.student_management.ui.student;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import org.fastcampus.student_management.application.student.StudentService;
 import org.fastcampus.student_management.application.student.dto.StudentInfoDto;
@@ -40,13 +39,23 @@ public class StudentController {
 
   public void activateStudent() {
     String name = getStudentName();
-    studentService.activateStudent(name);
+    try {
+      studentService.activateStudent(name);
+    } catch (IllegalArgumentException | IllegalStateException e) {
+      studentPresenter.showInvalidInputMessage(e.getMessage());
+      return;
+    }
     studentPresenter.showStudentActivated();
   }
 
   public void deactivateStudent() {
     String name = getStudentName();
-    studentService.deactivateStudent(name);
+    try {
+      studentService.deactivateStudent(name);
+    } catch (IllegalArgumentException | IllegalStateException e) {
+      studentPresenter.showInvalidInputMessage(e.getMessage());
+      return;
+    }
     studentPresenter.showStudentDeactivated();
   }
 
