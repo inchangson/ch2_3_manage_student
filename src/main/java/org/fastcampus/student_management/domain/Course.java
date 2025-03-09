@@ -8,7 +8,7 @@ public class Course {
   private final String courseName;
   private final DayOfWeek dayOfWeek;
   private final Long courseTime;
-  private CourseFee fee;
+  private final CourseFee fee;
 
   public Course(Student student, String courseName, int fee, DayOfWeek dayOfWeek, Long courseTime) {
     if (student == null) {
@@ -51,6 +51,9 @@ public class Course {
   }
 
   public void changeFee(int fee) {
+    if (DayOfWeek.SATURDAY.equals(this.dayOfWeek) || DayOfWeek.SUNDAY.equals(this.dayOfWeek)) {
+      fee = (int) Math.round(fee * 1.5);
+    }
     this.fee.changeFee(fee);
   }
 

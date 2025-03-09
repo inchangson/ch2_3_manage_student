@@ -75,7 +75,7 @@ public class Main {
     courseService.registerCourse(student1Course1);
     courseService.registerCourse(student1Course2);
 
-    CourseInfoDto student2Course1 = new CourseInfoDto("fine art1", 20000, "WEDNESDAY", "LEE", 13L);
+    CourseInfoDto student2Course1 = new CourseInfoDto("fine art1", 20000, "SUNDAY", "LEE", 13L);
     CourseInfoDto student2Course2 = new CourseInfoDto("math3", 300000, "FRIDAY", "LEE", 10L);
 
     courseService.registerCourse(student2Course1);
