@@ -51,9 +51,6 @@ public class Course {
   }
 
   public void changeFee(int fee) {
-    if (DayOfWeek.SATURDAY.equals(this.dayOfWeek) || DayOfWeek.SUNDAY.equals(this.dayOfWeek)) {
-      fee = (int) Math.round(fee * 1.5);
-    }
     this.fee.changeFee(fee);
   }
 

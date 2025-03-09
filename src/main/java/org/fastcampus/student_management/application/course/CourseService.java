@@ -4,6 +4,7 @@ import java.util.List;
 import org.fastcampus.student_management.application.course.dto.CourseInfoDto;
 import org.fastcampus.student_management.application.student.StudentService;
 import org.fastcampus.student_management.domain.Course;
+import org.fastcampus.student_management.domain.CourseList;
 import org.fastcampus.student_management.domain.DayOfWeek;
 import org.fastcampus.student_management.domain.Student;
 import org.fastcampus.student_management.repo.CourseRepository;
@@ -43,6 +44,8 @@ public class CourseService {
     if (courseListByStudent.isEmpty()) {
       throw new IllegalArgumentException("요청정보에 해당하는 활성화 상태의 학생이 없습니다.");
     }
-    courseListByStudent.forEach(course -> course.changeFee(fee));
+
+    CourseList courseList = new CourseList(courseListByStudent);
+    courseList.changeAllCoursesFee(fee);
   }
 }
