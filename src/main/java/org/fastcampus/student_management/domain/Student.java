@@ -63,8 +63,8 @@ public class Student {
     Student student = (Student) o;
 
     return name.equals(student.name) &&
-            age == student.age &&
-            address.equals(student.address);
+        age == student.age &&
+        address.equals(student.address);
   }
 
   @Override

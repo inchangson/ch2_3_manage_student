@@ -1,6 +1,7 @@
 package org.fastcampus.student_management.application.student.dto;
 
 public class StudentInfoDto {
+
   private final String name;
   private final int age;
   private final String address;

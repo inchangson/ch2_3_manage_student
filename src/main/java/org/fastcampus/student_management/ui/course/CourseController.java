@@ -14,7 +14,8 @@ public class CourseController {
   private final StudentPresenter studentPresenter;
   private final Scanner scanner = new Scanner(System.in);
 
-  public CourseController(CoursePresenter coursePresenter, CourseService courseService, StudentPresenter studentPresenter) {
+  public CourseController(CoursePresenter coursePresenter, CourseService courseService,
+      StudentPresenter studentPresenter) {
     this.coursePresenter = coursePresenter;
     this.courseService = courseService;
     this.studentPresenter = studentPresenter;
@@ -27,7 +28,8 @@ public class CourseController {
     DayOfWeek dayOfWeek = getDayOfWeek();
     Long courseTime = getCourseTime();
 
-    CourseInfoDto courseInfoDto = new CourseInfoDto(courseName, fee, dayOfWeek.name(), studentName, courseTime);
+    CourseInfoDto courseInfoDto = new CourseInfoDto(courseName, fee, dayOfWeek.name(), studentName,
+        courseTime);
     courseService.registerCourse(courseInfoDto);
 
     coursePresenter.showCourseRegistered();

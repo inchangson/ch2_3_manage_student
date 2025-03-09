@@ -13,7 +13,8 @@ public class StudentService {
   }
 
   public void saveStudent(StudentInfoDto studentInfoDto) {
-    Student student = new Student(studentInfoDto.getName(), studentInfoDto.getAge(), studentInfoDto.getAddress());
+    Student student = new Student(studentInfoDto.getName(), studentInfoDto.getAge(),
+        studentInfoDto.getAddress());
     studentRepository.save(student);
   }
 
@@ -24,13 +25,13 @@ public class StudentService {
 
   public void activateStudent(String name) {
     Student student = studentRepository.findByName(name)
-            .orElseThrow(() -> new IllegalArgumentException("해당하는 학생이 없습니다."));
+        .orElseThrow(() -> new IllegalArgumentException("해당하는 학생이 없습니다."));
     student.activate();
   }
 
   public void deactivateStudent(String name) {
     Student student = studentRepository.findByName(name)
-            .orElseThrow(() -> new IllegalArgumentException("해당하는 학생이 없습니다."));
+        .orElseThrow(() -> new IllegalArgumentException("해당하는 학생이 없습니다."));
     student.deactivate();
   }
 }

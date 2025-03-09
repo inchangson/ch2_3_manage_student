@@ -6,6 +6,7 @@ import org.fastcampus.student_management.application.student.dto.StudentInfoDto;
 import org.fastcampus.student_management.ui.UserInputType;
 
 public class StudentController {
+
   private final Scanner scanner = new Scanner(System.in);
   private final StudentPresenter studentPresenter;
   private final StudentService studentService;

@@ -3,11 +3,12 @@ package org.fastcampus.student_management.domain;
 import java.util.Objects;
 
 public class Course {
+
   private final Student student;
   private final String courseName;
-  private CourseFee fee;
   private final DayOfWeek dayOfWeek;
   private final Long courseTime;
+  private CourseFee fee;
 
   public Course(Student student, String courseName, int fee, DayOfWeek dayOfWeek, Long courseTime) {
     if (student == null) {
@@ -54,7 +55,7 @@ public class Course {
   }
 
   @Override
-  public boolean equals(Object o){
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -66,10 +67,10 @@ public class Course {
     Course course = (Course) o;
 
     return student.equals(course.student) &&
-            courseName.equals(course.courseName) &&
-            fee.equals(course.fee) &&
-            dayOfWeek.equals(course.dayOfWeek) &&
-            courseTime.equals(course.courseTime);
+        courseName.equals(course.courseName) &&
+        fee.equals(course.fee) &&
+        dayOfWeek.equals(course.dayOfWeek) &&
+        courseTime.equals(course.courseTime);
   }
 
   @Override
