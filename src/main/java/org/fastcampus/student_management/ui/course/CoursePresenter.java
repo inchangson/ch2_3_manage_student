@@ -48,4 +48,8 @@ public class CoursePresenter {
   public void showInvalidInputMessage() {
     System.out.println("잘못된 입력입니다. 다시 입력해주세요.");
   }
+
+  public void showInvalidInputMessage(String reason) {
+    System.out.println("잘못된 입력입니다. 다시 입력해주세요.\n사유: " + reason);
+  }
 }

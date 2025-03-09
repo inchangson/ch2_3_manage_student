@@ -44,8 +44,12 @@ public class CourseController {
   public void changeFee() {
     String studentName = getStudentName();
     int fee = getCourseFee();
-
-    courseService.changeFee(studentName, fee);
+    try {
+      courseService.changeFee(studentName, fee);
+    } catch (IllegalArgumentException e) {
+      coursePresenter.showInvalidInputMessage(e.getMessage());
+      return;
+    }
 
     coursePresenter.showFeeChanged();
   }

@@ -1,11 +1,12 @@
 package org.fastcampus.student_management.repo;
 
+import org.fastcampus.student_management.domain.Course;
+import org.fastcampus.student_management.domain.DayOfWeek;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.fastcampus.student_management.domain.Course;
-import org.fastcampus.student_management.domain.DayOfWeek;
 
 public class CourseRepository {
 

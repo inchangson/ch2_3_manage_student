@@ -1,9 +1,11 @@
 package org.fastcampus.student_management.domain;
 
+import java.util.Objects;
+
 public class Course {
   private final Student student;
   private final String courseName;
-  private final int fee;
+  private CourseFee fee;
   private final DayOfWeek dayOfWeek;
   private final Long courseTime;
 
@@ -14,7 +16,7 @@ public class Course {
 
     this.student = student;
     this.courseName = courseName;
-    this.fee = fee;
+    this.fee = new CourseFee(fee);
     this.dayOfWeek = dayOfWeek;
     this.courseTime = courseTime;
   }
@@ -36,7 +38,7 @@ public class Course {
   }
 
   public int getFee() {
-    return fee;
+    return fee.getFee();
   }
 
   public DayOfWeek getDayOfWeek() {
@@ -45,5 +47,33 @@ public class Course {
 
   public Long getCourseTime() {
     return courseTime;
+  }
+
+  public void changeFee(int fee) {
+    this.fee = new CourseFee(fee);
+  }
+
+  @Override
+  public boolean equals(Object o){
+    if (this == o) {
+      return true;
+    }
+
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+
+    Course course = (Course) o;
+
+    return student.equals(course.student) &&
+            courseName.equals(course.courseName) &&
+            fee.equals(course.fee) &&
+            dayOfWeek.equals(course.dayOfWeek) &&
+            courseTime.equals(course.courseTime);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(student, courseName, fee, dayOfWeek, courseTime);
   }
 }

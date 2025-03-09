@@ -1,6 +1,5 @@
 package org.fastcampus.student_management.application.course;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.fastcampus.student_management.application.course.dto.CourseInfoDto;
 import org.fastcampus.student_management.application.student.StudentService;
@@ -25,13 +24,23 @@ public class CourseService {
   }
 
   public List<CourseInfoDto> getCourseDayOfWeek(DayOfWeek dayOfWeek) {
-    List<Course> courseDayOfWeek = courseRepository.getCourseDayOfWeek(dayOfWeek);
+    List<Course> courseDayOfWeek = courseRepository.getCourseDayOfWeek(dayOfWeek)
+            .stream()
+            .filter(Course::isActivateUser)
+            .toList();
     return courseDayOfWeek.stream()
             .map(CourseInfoDto::new)
             .toList();
   }
 
   public void changeFee(String studentName, int fee) {
-    // TODO: 과제 구현 부분
+    List<Course> courseListByStudent = courseRepository.getCourseListByStudent(studentName)
+            .stream()
+            .filter(Course::isActivateUser)
+            .toList();
+    if (courseListByStudent.isEmpty()) {
+      throw new IllegalArgumentException("요청정보에 해당하는 활성화 상태의 학생이 없습니다.");
+    }
+    courseListByStudent.forEach(course -> course.changeFee(fee));
   }
 }
