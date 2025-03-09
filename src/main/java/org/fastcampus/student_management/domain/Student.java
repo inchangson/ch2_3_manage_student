@@ -62,13 +62,11 @@ public class Student {
 
     Student student = (Student) o;
 
-    return name.equals(student.name) &&
-        age == student.age &&
-        address.equals(student.address);
+    return name.equals(student.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, age, address, activated);
+    return Objects.hash(name);
   }
 }

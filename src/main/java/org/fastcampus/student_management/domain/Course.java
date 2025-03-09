@@ -63,18 +63,14 @@ public class Course {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-
+    
     Course course = (Course) o;
-
-    return student.equals(course.student) &&
-        courseName.equals(course.courseName) &&
-        fee.equals(course.fee) &&
-        dayOfWeek.equals(course.dayOfWeek) &&
-        courseTime.equals(course.courseTime);
+    
+    return courseName.equals(course.courseName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(student, courseName, fee, dayOfWeek, courseTime);
+    return Objects.hash(courseName);
   }
 }
