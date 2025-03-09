@@ -51,7 +51,7 @@ public class Course {
   }
 
   public void changeFee(int fee) {
-    this.fee = new CourseFee(fee);
+    this.fee.changeFee(fee);
   }
 
   @Override

@@ -24,14 +24,12 @@ public class StudentService {
   }
 
   public void activateStudent(String name) {
-    Student student = studentRepository.findByName(name)
-        .orElseThrow(() -> new IllegalArgumentException("해당하는 학생이 없습니다."));
+    Student student = getStudent(name);
     student.activate();
   }
 
   public void deactivateStudent(String name) {
-    Student student = studentRepository.findByName(name)
-        .orElseThrow(() -> new IllegalArgumentException("해당하는 학생이 없습니다."));
+    Student student = getStudent(name);
     student.deactivate();
   }
 }
